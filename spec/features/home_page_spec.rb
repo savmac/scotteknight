@@ -24,6 +24,9 @@ feature 'Visiting the home page' do
 end
 
 feature 'Viewing blog posts' do
+  before :each do
+    @post = FactoryGirl.create(:post)
+  end
   scenario 'I should see blog post titles on the home page' do
     visit root_path
 
@@ -31,10 +34,9 @@ feature 'Viewing blog posts' do
   end
 
   scenario 'I can click on a post title and view the whole post' do
-    post = FactoryGirl.create(:post)
     visit root_path
-    click_link "#{post.title}"
+    click_link "#{@post.title}"
 
-    expect(page).to have_content "#{post.content}"
+    expect(page).to have_content "#{@post.body}"
   end
 end
