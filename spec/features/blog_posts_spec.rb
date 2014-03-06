@@ -5,7 +5,7 @@ feature 'Creating blog posts' do
     create_a_new_post
 
     expect(page).to have_css 'h1.post-title', text: 'My New Blog Post'
-    expect(page).to have_css 'p.post-body', text: 'This is the content of my new blog post.'
+    expect(page).to have_css 'div.post-body', text: 'This is the content of my new blog post.'
   end
 
   scenario 'I should be able to edit a post' do
