@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
@@ -13,8 +17,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(get_params)
+      redirect_to @post
+    end
   end
 
   private

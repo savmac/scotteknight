@@ -21,6 +21,7 @@ feature 'Visiting the home page' do
 
     expect(current_path).to eq root_path
   end
+
 end
 
 feature 'Viewing blog posts' do
@@ -30,7 +31,7 @@ feature 'Viewing blog posts' do
   scenario 'I should see blog post titles on the home page' do
     visit root_path
 
-    expect(page).to have_css 'h2.post-title'
+    expect(page).to have_content "#{@post.title}"
   end
 
   scenario 'I can click on a post title and view the whole post' do

@@ -1,9 +1,9 @@
-<ul>
+<ul class="list-unstyled col-md-8">
   <% @posts.each do |post| %>
     <li>
-      <h3 class="post-title"><%= link_to post.title, post %></h3>
+      <h1 class="post-title"><%= link_to post.title, post %></h1>
       <small>Posted <%= time_ago_in_words(post.created_at) %> ago</small>
-      <p class="post-body"><%= post.body %></p>
     </li>
+    <hr>
   <% end %>
 </ul>
