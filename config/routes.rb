@@ -1,8 +1,11 @@
 Scotteknight::Application.routes.draw do
 
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
   root 'pages#home'
 
   get 'about' => 'pages#about'
+  get 'magic_word' => 'pages#magic_word'
   resources :posts, only: [:new, :create, :show, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.

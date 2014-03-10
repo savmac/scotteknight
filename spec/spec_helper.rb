@@ -4,6 +4,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'monban/test/helpers'
+
+Monban.test_mode!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -40,4 +43,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  # Monban test helpers
+  config.include Monban::Test::Helpers, type: :feature
+  config.after :each do
+    Monban.test_reset!
+  end
 end
