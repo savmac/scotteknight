@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -14,9 +16,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'monban'
+gem 'ffaker'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
@@ -26,7 +30,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'ffaker'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
